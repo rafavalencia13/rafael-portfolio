@@ -61,15 +61,14 @@ const challenges = [
   },
 ]
 
-function ChallengeCard({ challenge, index }) {
+function ChallengeCard({ challenge }) {
   const ref = useFadeIn()
 
   return (
     <div
       ref={ref}
-      className="fade-up rounded-2xl border border-light-border dark:border-dark-border p-7 hover:border-accent/40 transition-all duration-300 relative overflow-hidden group"
+      className="fade-up rounded-2xl border border-light-border dark:border-dark-border p-7 hover:border-accent/40 transition-colors duration-300 relative overflow-hidden group"
       style={{
-        transitionDelay: `${index * 0.06}s`,
         background: 'linear-gradient(145deg, rgba(4,163,110,0.04) 0%, transparent 60%)',
       }}
     >
@@ -176,8 +175,8 @@ function Experience() {
           Retos técnicos resueltos
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {challenges.map((c, i) => (
-            <ChallengeCard key={c.title} challenge={c} index={i} />
+          {challenges.map(c => (
+            <ChallengeCard key={c.title} challenge={c} />
           ))}
         </div>
       </div>
